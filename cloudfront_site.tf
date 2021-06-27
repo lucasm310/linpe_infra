@@ -13,7 +13,7 @@ resource "aws_cloudfront_distribution" "site" {
   }
 
   viewer_certificate {
-    acm_certificate_arn = data.aws_acm_certificate.linpe.arn
+    acm_certificate_arn = aws_acm_certificate.linpe_site_cert.arn
     ssl_support_method  = "sni-only"
   }
 

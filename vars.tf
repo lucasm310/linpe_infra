@@ -65,7 +65,3 @@ variable "domain_app" {
     "prod" = "app.linpe.com.br"
   }
 }
-
-data "aws_acm_certificate" "linpe" {
-  domain = "*.linpe.com.br"
-}
