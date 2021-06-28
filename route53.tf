@@ -1,10 +1,9 @@
-resource "aws_route53_zone" "primary" {
+data "aws_route53_zone" "primary" {
   name = "linpe.com.br"
-  tags = var.tags
 }
 
 resource "aws_route53_record" "www" {
-  zone_id = aws_route53_zone.primary.zone_id
+  zone_id = data.aws_route53_zone.primary.zone_id
   name    = lookup(var.domain_site, terraform.workspace)
   type    = "A"
   alias {
@@ -16,7 +15,7 @@ resource "aws_route53_record" "www" {
 }
 
 resource "aws_route53_record" "app" {
-  zone_id = aws_route53_zone.primary.zone_id
+  zone_id = data.aws_route53_zone.primary.zone_id
   name    = lookup(var.domain_app, terraform.workspace)
   type    = "A"
   alias {

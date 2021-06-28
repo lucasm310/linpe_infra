@@ -1,5 +1,5 @@
 output "nameserver" {
-  value = aws_route53_zone.primary.name_servers
+  value = data.aws_route53_zone.primary.name_servers
 }
 
 output "cognito_user_pool_id" {
