@@ -19,8 +19,8 @@ variable "cognito_groups" {
 
 variable "cognito_urls" {
   default = {
-    "dev"  = "https://app.dev.linpe.com.br/"
-    "prod" = "https://app.linpe.com.br/"
+    "dev"  = ["https://app.dev.linpe.com.br/","http://localhost:3000/"]
+    "prod" = ["https://app.linpe.com.br/"]
   }
 }
 

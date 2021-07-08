@@ -86,8 +86,8 @@ resource "aws_cognito_user_pool_client" "linpe_client_web" {
   write_attributes                     = var.cognito_fields
   explicit_auth_flows                  = ["ALLOW_CUSTOM_AUTH", "ALLOW_USER_SRP_AUTH", "ALLOW_REFRESH_TOKEN_AUTH"]
   supported_identity_providers         = ["COGNITO", "Google"]
-  callback_urls                        = [lookup(var.cognito_urls, terraform.workspace)]
-  logout_urls                          = [lookup(var.cognito_urls, terraform.workspace)]
+  callback_urls                        = lookup(var.cognito_urls, terraform.workspace)
+  logout_urls                          = lookup(var.cognito_urls, terraform.workspace)
   allowed_oauth_flows                  = ["code"]
   allowed_oauth_scopes                 = ["phone", "email", "openid", "profile", "aws.cognito.signin.user.admin"]
   allowed_oauth_flows_user_pool_client = true
