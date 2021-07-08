@@ -1,6 +1,7 @@
 resource "aws_api_gateway_rest_api" "api_linpe" {
   name = "api-linpe-${terraform.workspace}"
   tags = merge(var.tags, { enviroment = terraform.workspace })
+  binary_media_types = ["multipart/form-data"]
 }
 
 resource "aws_api_gateway_resource" "proxy" {
